@@ -1,0 +1,17 @@
+find * -name "*.java" > sources.txt
+javac @sources.txt
+java simulator.Simulator
+java simulator.Main
+
+
+find * -name "*.class" > delete.txt
+rm $(cat delete.txt)
+
+https://www.w3schools.com/java/java_getstarted.asp
+https://www.freecodecamp.org/news/java-string-to-int-how-to-convert-a-string-to-an-integer/
+
+Unified Modeling Language 
+https://www.plantuml.com/plantuml/uml/
+
+Singleton:
+https://refactoring.guru/design-patterns/singleton/java/example

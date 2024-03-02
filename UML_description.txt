@@ -1,0 +1,46 @@
+
+This UML diagram describes a system related to aircraft and weather monitoring. Let's break down the main components and their relationships:
+
+Tower:
+
+List<Flyable*> observers: Represents a list of objects that are interested in weather conditions (Flyable objects).
+void register(Flyable* p_flyable): Method to register a Flyable object to the tower.
+void unregister(Flyable* p_flyable): Method to unregister a Flyable object from the tower.
+void conditionChanged(): Method that seems to be intended to notify observers about changes in weather conditions.
+WeatherTower:
+
+string getWeather(Coordinates p_coordinates): Method to get the current weather based on the provided coordinates.
+void changeWeather(): Method to change the weather conditions.
+WeatherProvider (Singleton):
+
+string[] weather: Array or list of possible weather conditions.
+WeatherProvider(): Private constructor for the singleton pattern.
+string getCurrentWeather(Coordinates p_coordinates): Method to get the current weather based on the provided coordinates.
+Coordinates:
+
+int longitude, int latitude, int height: Represents the coordinates of a location.
+Coordinates(int p_longitude, int p_latitude, int p_height): Constructor to initialize coordinates.
+int getLongitude(), int getLatitude(), int getHeight(): Getter methods for individual coordinates.
+Aircraft:
+
+long id, string name, Coordinates coordinates: Represents basic properties of an aircraft.
+Aircraft(long p_id, string p_name, Coordinates p_coordinate): Constructor to initialize aircraft properties.
+Flyable (abstract class):
+
+WeatherTower weatherTower: Reference to the weather tower.
+abstract void updateConditions(): Abstract method to be implemented by subclasses for updating conditions.
+registerTower(WeatherTower* p_tower): Method to register the aircraft with a weather tower.
+Helicopter, JetPlane, Balloon:
+
+Subclasses of Aircraft that implement the Flyable interface. Each has its own updateConditions() method.
+AircraftFactory (Singleton):
+
+Flyable* newAircraft(string p_type, string p_name, Coordinates p_coordinates): Method to create a new aircraft based on the provided type, name, and coordinates.
+Relationships:
+
+Tower has a composition relationship with WeatherTower.
+Tower has an aggregation relationship with Flyable.
+Coordinates has a multiplicity relationship with Aircraft.
+Flyable has a generalization relationship with Aircraft, Helicopter, JetPlane, and Balloon.
+JetPlane and WeatherProvider, as well as WeatherTower and WeatherProvider, have hidden dependencies (stereotyped with [hidden]).
+In summary, this UML diagram models a system where different types of aircraft are registered with a weather tower, and the weather conditions can be changed, affecting the registered aircraft. The WeatherProvider singleton is responsible for providing current weather conditions. The AircraftFactory singleton is responsible for creating new aircraft objects.
