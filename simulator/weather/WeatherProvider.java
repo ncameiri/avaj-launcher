@@ -25,6 +25,10 @@ public class WeatherProvider {
         int lon=p_coordinates.getLongitude();
         int lat=p_coordinates.getLatitude();
         int hei=p_coordinates.getHeight();
+        //Avoid division by 0
+        if(hei == 0){
+            hei = lon + lat + 1;
+        }
         float index_= (float) Math.floor((lon * lat / hei));
         System.out.println(Math.round(index_%4));
         return instance.weather[Math.round(index_%4)];
