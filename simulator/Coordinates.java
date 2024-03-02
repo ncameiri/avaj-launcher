@@ -5,8 +5,9 @@ public class Coordinates {
     int latitute;
     int height;
     
-    Coordinates(int p_longitude, int p_latitude, int p_height){
-        try{
+    //O Throws Exception vai enviar a exception para o main e interromper o código, o try catch não poderá estar na função caso contrario apenas interrompe o constructor, continuando a execução do main
+    public Coordinates(int p_longitude, int p_latitude, int p_height) throws Exception{
+        //try{
             if(p_height < 0 || p_height > 100){
             throw new Exception("height out of bounds Exception");
             }
@@ -17,20 +18,20 @@ public class Coordinates {
             this.height = p_height;
             this.longitude = p_longitude;
             this.latitute = p_latitude;
-
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
+        //}
+        // catch(Exception e){
+        //     e.printStackTrace();
+            
+        // }
        
     }
-    int getLongitude(){
+    public int getLongitude(){
         return this.longitude;
     }
-    int getLatitude(){
+    public int getLatitude(){
         return this.latitute;
     }
-    int getHeight(){
+    public int getHeight(){
         return this. height;
     }
 }

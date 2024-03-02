@@ -8,6 +8,7 @@ import simulator.aircrafts.Aircraft;
 import simulator.aircrafts.AircraftFactory;
 import simulator.aircrafts.Flyable;
 import simulator.weather.WeatherProvider;
+import simulator.weather.WeatherProvider.*;
 import simulator.weather.WeatherTower;
 import simulator.Coordinates;
 public class Simulator {
@@ -65,16 +66,23 @@ public class Simulator {
       //Coordinates new_coordinates = new Coordinates(654,33,20);
       //AircraftFactory.newAircraft("1","NoName", new Coordinates(654,33,20));
       String[] tt={"1", "2", "3", "4"};
-      WeatherProvider ne=  new WeatherProvider(tt);
-      String res_1=ne.getCurrentWeather(new Coordinates(0,0,0));
-      System.out.println(res_1);
-      res_1=ne.getCurrentWeather(new Coordinates(0,0,0));
-      System.out.println(res_1);
-      res_1=ne.getCurrentWeather(new Coordinates(0,0,0));
-      System.out.println(res_1);
-      res_1=ne.getCurrentWeather(new Coordinates(0,0,0));
-      System.out.println(res_1);
-      WeatherProvider n2e=  new WeatherProvider(tt);
+       //WeatherProvider ne= new WeatherProvider(null);
+       try{
+        Random randa = new Random();
+        Random randb = new Random();
+        Random randc = new Random();
+         Coordinates a = new Coordinates(Math.abs(randa.nextInt(100)),Math.abs(randb.nextInt(100)),Math.abs(randc.nextInt(100)));
+       String res_1=WeatherProvider.getCurrentWeather(a);
+       System.out.println(res_1);
+       res_1=WeatherProvider.getCurrentWeather(a);
+       System.out.println(res_1);
+       res_1=WeatherProvider.getCurrentWeather(a);
+       System.out.println(res_1);
+       res_1=WeatherProvider.getCurrentWeather(a);
+       System.out.println(res_1);
+       }
+       catch(Exception e){e.printStackTrace();}
+      // WeatherProvider n2e=  new WeatherProvider(tt);
       return;
     }
     
