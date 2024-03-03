@@ -1,9 +1,6 @@
 package simulator;
-
-//import simulator.aircrafts.Flyable;
 import java.io.*;
 import java.util.*;
-
 import coordinates.*;
 import simulator.aircrafts.Aircraft;
 import simulator.aircrafts.AircraftFactory;
@@ -12,8 +9,8 @@ import simulator.aircrafts.Flyable;
 import simulator.weather.WeatherProvider;
 import simulator.weather.WeatherProvider.*;
 import simulator.weather.WeatherTower;
+
 public class Simulator {
-  //Flyable inst = new Flyable();
   static public int airc_id=0;
   static int sim_loops=-1;
   //Tower creation
@@ -40,10 +37,9 @@ public class Simulator {
         int Lati= Integer.parseInt(tokens.nextToken());
         int Heig = Integer.parseInt(tokens.nextToken());
         Coordinates coord = new Coordinates(Long,Lati,Heig);
-        //Aircraft air1 = new Aircraft(airc_id++,Register_Id,coord); 
-        System.out.println(AircraftType);
-        System.out.println(airc_id);
-        Flyable curr_fly=AircraftFactory.newAircraft(AircraftType, data, coord);
+        p_tower.check_duplicated_id(Register_Id);
+        //System.out.println(data);
+        Flyable curr_fly=AircraftFactory.newAircraft(AircraftType, Register_Id, coord);
         curr_fly.registerTower(p_tower);         
     }
      return 0;
@@ -51,7 +47,6 @@ public class Simulator {
   }
   
   public static void main(String[] args) {
-    //simulator.aircrafts.Flyable.cenas();
     if (args.length < 1) {
       System.out.println("Please provide 1 simulation file as 1st argument"); 
 			return;
@@ -62,14 +57,9 @@ public class Simulator {
       Scanner file_reader = new Scanner(scenario_file);
       file_parse(file_reader);
       System.out.println(sim_loops);
-      System.out.println("continuo");
+ 
+      //DEBUG- check all registered aircrafts
       p_tower.check_all_aircrafts();
-     // sim_loops= Integer.parseInt(data);
-      //  System.out.println(sim_loops);
-      // while (file_reader.hasNextLine()) {
-      //   data = file_reader.nextLine();
-      //   //System.out.println(data);
-      // }
 
       WeatherTower tower = new WeatherTower();
 

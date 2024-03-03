@@ -9,6 +9,8 @@ public class Aircraft extends Flyable {
     protected Coordinates coordinates;
     protected WeatherTower weatherTower;
     protected Aircraft(long p_id, String p_name, Coordinates p_coordinate){
-        
+        this.name=p_name;
+        this.coordinates=p_coordinate;
+        this.id=p_id;
     }
 }

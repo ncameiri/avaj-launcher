@@ -7,10 +7,13 @@ public class AircraftFactory {
     private static volatile AircraftFactory instance = null;
 
     private AircraftFactory(){}
+
     public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws Exception{
         if (instance == null) {
             instance = new AircraftFactory();
         }
+        System.out.println(Simulator.airc_id);
+        System.out.println(p_name);
         if(p_type.equals("Helicopter"))       
             return new Helicopter(Simulator.airc_id++, p_name, p_coordinates);
         else if(p_type.equals("JetPlane"))

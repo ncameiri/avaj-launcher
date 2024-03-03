@@ -22,4 +22,17 @@ public class Tower{
 	public void check_all_aircrafts(){
 		System.out.println(observers);
 	}
+
+		public void check_duplicated_id(String id_to_check) throws Exception{
+		
+		Iterator<Flyable> iterator = observers.iterator();
+		
+		//simple iteration
+		while(iterator.hasNext()){
+			//int i = (int) iterator.next();
+			if(iterator.next().get_name().equals(id_to_check))
+				  throw new Exception("Duplicated id");
+		}
+
+	}
 }

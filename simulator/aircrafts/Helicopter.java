@@ -16,4 +16,5 @@ public class Helicopter  extends Aircraft {
         this.weatherTower= p_tower;
         this.weatherTower.register(this);
     }
+    public String get_name(){return this.name;}
 }

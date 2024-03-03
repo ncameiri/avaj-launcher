@@ -37,4 +37,4 @@ jar cfe SimProg simulator.Simulator  $(find * -name "*.class")
 jar cf coord.jar $(find ./coordinates/* -name "*.class") 
 jar cfe simu.jar simulator.Simulator $(find ./simulator/* -name "*.class") 
 java -jar simu.jar coord.jar  scenario.txt
-java -cp "simu.jar:coord.jar" simulator.Simulator  scenario.txt.
+java -cp "simu.jar:coord.jar" simulator.Simulator  scenario.txt
