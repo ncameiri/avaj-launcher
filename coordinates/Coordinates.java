@@ -1,4 +1,4 @@
-package simulator;
+package coordinates;
 
 public class Coordinates {
     private int longitude;

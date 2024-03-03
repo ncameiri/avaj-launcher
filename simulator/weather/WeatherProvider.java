@@ -1,11 +1,12 @@
 package simulator.weather;
-import simulator.Coordinates;
 import java.util.Random;
+
+import coordinates.*;
 //Singleton - Unique Object - Unique access point - 1 instance of object
 public class WeatherProvider {
     //private static singleton
     private static volatile WeatherProvider instance = null;
-    public String[] weather;
+    private String[] weather;
     
     
     private WeatherProvider(String[] value){
@@ -14,7 +15,7 @@ public class WeatherProvider {
         this.weather =  kind_of_wheather;
         //instance = instance;
     }
-    public static synchronized String getCurrentWeather(Coordinates p_coordinates){
+    public String getCurrentWeather(Coordinates p_coordinates){
         System.out.println("Func wheather");
         if (instance == null) {
             instance = new WeatherProvider(null);

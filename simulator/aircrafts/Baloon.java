@@ -1,6 +1,6 @@
 package simulator.aircrafts;
 
-import simulator.Coordinates;
+import coordinates.*;
 import simulator.weather.WeatherTower;
 //Ballon inherits from Aircraft and implements Flyable Interface(define methods existent on this interface for each Aircraft Object)
 public class Baloon extends Aircraft{

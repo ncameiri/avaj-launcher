@@ -5,7 +5,7 @@ import simulator.weather.WeatherTower;
 
 import java.util.*;
 public class Tower{
-    List<Flyable> observers= new ArrayList<Flyable>();
+    private List<Flyable> observers= new ArrayList<Flyable>();
 
     	public void register(Flyable flyable) {
 		observers.add(flyable);

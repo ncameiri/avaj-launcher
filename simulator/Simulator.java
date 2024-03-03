@@ -4,6 +4,7 @@ package simulator;
 import java.io.*;
 import java.util.*;
 
+import coordinates.*;
 import simulator.aircrafts.Aircraft;
 import simulator.aircrafts.AircraftFactory;
 import simulator.aircrafts.Helicopter;
@@ -11,7 +12,6 @@ import simulator.aircrafts.Flyable;
 import simulator.weather.WeatherProvider;
 import simulator.weather.WeatherProvider.*;
 import simulator.weather.WeatherTower;
-import simulator.Coordinates;
 public class Simulator {
   //Flyable inst = new Flyable();
   static public int airc_id=0;

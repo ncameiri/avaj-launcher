@@ -1,4 +1,5 @@
 package simulator.aircrafts;
+import coordinates.*;
 import simulator.*;
 import simulator.weather.WeatherTower;
 public class Aircraft extends Flyable {

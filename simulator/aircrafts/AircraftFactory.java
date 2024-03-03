@@ -1,5 +1,5 @@
 package simulator.aircrafts;
-import simulator.Coordinates;
+import coordinates.*;
 import simulator.Simulator;
 import simulator.weather.WeatherProvider;
 

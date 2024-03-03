@@ -1,6 +1,6 @@
 package simulator.aircrafts;
 
-import simulator.Coordinates;
+import coordinates.*;
 import simulator.weather.WeatherTower;
 public class JetPlane extends Aircraft {
     public JetPlane(long p_id, String p_name, Coordinates p_coordinate){

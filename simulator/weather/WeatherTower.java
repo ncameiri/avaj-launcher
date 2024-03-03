@@ -1,8 +1,8 @@
 package simulator.weather;
 
-import simulator.Coordinates;
+import coordinates.Coordinates;
 import simulator.Tower;
 public class WeatherTower extends Tower{
-    String getWeather(Coordinates p_coordinates){return null;}
-    void changeWeather(){}
+    public String getWeather(Coordinates p_coordinates){return null;}
+    public void changeWeather(){}
 }
