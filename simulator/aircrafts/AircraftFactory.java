@@ -1,11 +1,22 @@
 package simulator.aircrafts;
-
 import simulator.Coordinates;
+import simulator.Simulator;
+import simulator.weather.WeatherProvider;
 
-//Singleton - Unique Object - Unique access point - 1 instance of object
 public class AircraftFactory {
-    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates){
-        return new Helicopter(0, p_name, p_coordinates);
-    }
-    
+    private static volatile AircraftFactory instance = null;
+
+    private AircraftFactory(){}
+    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws Exception{
+        if (instance == null) {
+            instance = new AircraftFactory();
+        }
+        if(p_type.equals("Helicopter"))       
+            return new Helicopter(Simulator.airc_id++, p_name, p_coordinates);
+        else if(p_type.equals("JetPlane"))
+            return new JetPlane(Simulator.airc_id++, p_name, p_coordinates);
+        else if(p_type.equals("Baloon"))
+            return new Baloon(Simulator.airc_id++, p_name, p_coordinates);
+        throw new Exception("Wrong type of Flyable");
+    }       
 }

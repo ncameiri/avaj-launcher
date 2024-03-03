@@ -7,6 +7,9 @@ java simulator.Main
 find * -name "*.class" > delete.txt
 rm $(cat delete.txt)
 
+https://en.wikipedia.org/wiki/Class_diagram
+
+https://www.upgrad.com/blog/pointers-in-java/
 https://www.w3schools.com/java/java_getstarted.asp
 https://www.freecodecamp.org/news/java-string-to-int-how-to-convert-a-string-to-an-integer/
 
@@ -16,6 +19,8 @@ https://www.plantuml.com/plantuml/uml/
 Singleton:
 https://refactoring.guru/design-patterns/singleton/java/example
 
+https://copyprogramming.com/howto/constructor-in-an-interface
 
 // Constructor Singleton WeatherProvider DONE
 // Exception Constructor Coordinates stops main execution DONE
+// Implemnts interface Flyable

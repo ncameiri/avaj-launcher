@@ -1,0 +1,13 @@
+Unified Modeling Language
+-Class (Balloon, JetPlane or Helicopter) extends(inherits(fields and methods) properties from) Aircraft(superclass) and implement abstract class Flyable(could contains abstract methods)
+
+-Aircraft is composed by Coordinates class(coordinates atribute)
+
+-Tower agregates Flyables through observers List (container of Flyables)
+
+-class (WeatherTower) extends Tower ()
+
++	Public
+-	Private
+#	Protected
+~	Package

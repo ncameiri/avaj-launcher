@@ -1,9 +1,9 @@
 package simulator;
 
 public class Coordinates {
-    int longitude;
-    int latitute;
-    int height;
+    private int longitude;
+    private int latitute;
+    private int height;
     
     //O Throws Exception vai enviar a exception para o main e interromper o código, o try catch não poderá estar na função caso contrario apenas interrompe o constructor, continuando a execução do main
     public Coordinates(int p_longitude, int p_latitude, int p_height) throws Exception{

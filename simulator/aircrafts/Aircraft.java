@@ -1,11 +1,13 @@
 package simulator.aircrafts;
 import simulator.*;
-public class Aircraft {
+import simulator.weather.WeatherTower;
+public class Aircraft extends Flyable {
     // TYPE NAME LONGITUDE LATITUDE HEIGHT
-    long id;
-    String name;
-    Coordinates coordinates;
-    Aircraft(long p_id, String p_name, Coordinates p_coordinate){
+    protected long id;
+    protected String name;
+    protected Coordinates coordinates;
+    protected WeatherTower weatherTower;
+    protected Aircraft(long p_id, String p_name, Coordinates p_coordinate){
         
     }
 }

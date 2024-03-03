@@ -1,18 +1,9 @@
 package simulator.aircrafts;
 import simulator.weather.WeatherTower;
-public interface Flyable {
-
- // void updateConditions();
-	//void registerTower(WeatherTower weatherTower);
-	//String getFullId();
+public abstract class Flyable {
+	public void updateConditions(){};
+	public void registerTower(WeatherTower p_tower){};
 }
-// } Flyable {
 
-//   WeatherTower weatherTower=null;
-  
-//   abstract void updateConditions();
-//   //void registerTower(WeatherTower p_tower){
-//   //}
-// }
     
 

@@ -14,13 +14,19 @@ import simulator.weather.WeatherTower;
 import simulator.Coordinates;
 public class Simulator {
   //Flyable inst = new Flyable();
-  static int airc_id=0;
+  static public int airc_id=0;
   static int sim_loops=-1;
-  public static int file_parse(Scanner scenario_reader) throws Exception{
-   try{ 
+  //Tower creation
+  private static WeatherTower p_tower = new WeatherTower();
+  public int validate_type_flyable(String flyable_to_test){
+      return 0;
+  }
+
+  public static  int file_parse(Scanner scenario_reader) throws Exception{
+   
     String data = scenario_reader.nextLine();
     sim_loops= Integer.parseInt(data);
-    if(sim_loops < 0)
+    if(sim_loops <= 0)
       throw new Exception("Wrong number of simulation loops");
      while (scenario_reader.hasNextLine()) {
         //if(data){
@@ -35,22 +41,13 @@ public class Simulator {
         int Heig = Integer.parseInt(tokens.nextToken());
         Coordinates coord = new Coordinates(Long,Lati,Heig);
         //Aircraft air1 = new Aircraft(airc_id++,Register_Id,coord); 
-         System.out.println(AircraftType);
+        System.out.println(AircraftType);
         System.out.println(airc_id);
-        if(AircraftType.equals("Helicopter")){
-          Helicopter heli = new Helicopter(airc_id++,Register_Id,coord);
-        }
-    //}
-     //System.out.println("New Line");
-      //}
+        Flyable curr_fly=AircraftFactory.newAircraft(AircraftType, data, coord);
+        curr_fly.registerTower(p_tower);         
     }
      return 0;
-   }
-   catch(Exception e) {
-      System.out.println("An error occurred opening / reading file.");
-      e.printStackTrace();
-      return -1;
-    }
+   
   }
   
   public static void main(String[] args) {
@@ -65,7 +62,8 @@ public class Simulator {
       Scanner file_reader = new Scanner(scenario_file);
       file_parse(file_reader);
       System.out.println(sim_loops);
-     
+      System.out.println("continuo");
+      p_tower.check_all_aircrafts();
      // sim_loops= Integer.parseInt(data);
       //  System.out.println(sim_loops);
       // while (file_reader.hasNextLine()) {
@@ -79,6 +77,7 @@ public class Simulator {
     } catch (Exception e) {
       System.out.println("An error occurred opening / reading file.");
       e.printStackTrace();
+      return;
     }
 
       //TESTES
