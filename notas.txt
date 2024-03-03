@@ -1,8 +1,10 @@
 find * -name "*.java" > sources.txt
 javac @sources.txt
 java simulator.Simulator
-java simulator.Main
 
+Creating Jar File
+jar cfe SimProg simulator.Simulator  $(find * -name "*.class") 
+java -jar SimProg scenario.txt
 
 find * -name "*.class" > delete.txt
 rm $(cat delete.txt)
@@ -21,6 +23,18 @@ https://refactoring.guru/design-patterns/singleton/java/example
 
 https://copyprogramming.com/howto/constructor-in-an-interface
 
+//File parsing DONE
+//Aircraft Creation during parsing DONE
+//Exception stops code DONE
 // Constructor Singleton WeatherProvider DONE
 // Exception Constructor Coordinates stops main execution DONE
-// Implemnts interface Flyable
+// Implemnts abstract class Flyable DONE
+// registerTower implementation each Aircraft DONE
+
+
+JAR compiled tests
+jar cfe SimProg simulator.Simulator  $(find * -name "*.class") 
+jar cf coord.jar $(find ./coordinates/* -name "*.class") 
+jar cfe simu.jar simulator.Simulator $(find ./simulator/* -name "*.class") 
+java -jar simu.jar coord.jar  scenario.txt
+java -cp "simu.jar:coord.jar" simulator.Simulator  scenario.txt.
