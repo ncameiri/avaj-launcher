@@ -3,8 +3,10 @@ import coordinates.*;
 import simulator.Simulator;
 import simulator.weather.WeatherProvider;
 
+
+//Singleton -> Only 1 object instance of this type
 public class AircraftFactory {
-    private static volatile AircraftFactory instance = null;
+    private static AircraftFactory instance = null;
 
     private AircraftFactory(){}
 
@@ -12,8 +14,8 @@ public class AircraftFactory {
         if (instance == null) {
             instance = new AircraftFactory();
         }
-        System.out.println(Simulator.airc_id);
-        System.out.println(p_name);
+        //System.out.println(Simulator.airc_id);
+        //System.out.println(p_name);
         if(p_type.equals("Helicopter"))       
             return new Helicopter(Simulator.airc_id++, p_name, p_coordinates);
         else if(p_type.equals("JetPlane"))

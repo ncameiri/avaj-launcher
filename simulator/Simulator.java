@@ -13,7 +13,8 @@ import simulator.weather.WeatherTower;
 public class Simulator {
   static public int airc_id=0;
   static int sim_loops=-1;
-  //Tower creation
+  //WeatherTower creation to be compatible with
+  //registerTower Method
   private static WeatherTower p_tower = new WeatherTower();
   public int validate_type_flyable(String flyable_to_test){
       return 0;
@@ -52,14 +53,17 @@ public class Simulator {
 			return;
 		}
     try {
-      System.out.println(args[0]);
+      //System.out.println(args[0]);
       File scenario_file = new File(args[0]);
       Scanner file_reader = new Scanner(scenario_file);
       file_parse(file_reader);
-      System.out.println(sim_loops);
+      //System.out.println(sim_loops);
  
       //DEBUG- check all registered aircrafts
-      p_tower.check_all_aircrafts();
+      //p_tower.check_all_aircrafts();
+      //Loop all over the simulation cycles
+      p_tower.changeWeather();
+      
 
       WeatherTower tower = new WeatherTower();
 

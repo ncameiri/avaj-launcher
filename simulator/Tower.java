@@ -16,14 +16,20 @@ public class Tower{
 	}
 	
 	protected void conditionsChanged() {
+		Iterator<Flyable> iterator = observers.iterator();
 		
+		
+		while(iterator.hasNext()){
+			iterator.next().updateConditions();
+
+		}
 	}
 
 	public void check_all_aircrafts(){
 		System.out.println(observers);
 	}
 
-		public void check_duplicated_id(String id_to_check) throws Exception{
+	public void check_duplicated_id(String id_to_check) throws Exception{
 		
 		Iterator<Flyable> iterator = observers.iterator();
 		

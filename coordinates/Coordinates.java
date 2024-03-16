@@ -34,4 +34,55 @@ public class Coordinates {
     public int getHeight(){
         return this. height;
     }
+
+    public void UpdateHelicopterRain(){
+        this.longitude+=5;
+    }
+
+    public void UpdateHelicopterFog(){
+        this.longitude+=1;
+    }
+
+    public void UpdateHelicopterSun(){
+        this.longitude+=10;
+        this.height+=2;
+    }
+
+    public void UpdateHelicopterSnow(){
+        this.height-=12;
+    }
+
+    public void UpdateJetPlaneRain(){
+        this.latitute+=5;
+    }
+
+    public void UpdateJetPlaneFog(){
+        this.latitute+=1;
+    }
+
+    public void UpdateJetPlaneSun(){
+        this.latitute+=10;
+        this.height+=2;
+    }
+
+    public void UpdateJetPlaneSnow(){
+        this.height-=7;
+    }
+
+    public void UpdateBaloonRain(){
+        this.height-=5;
+    }
+
+    public void UpdateBaloonFog(){
+        this.height-=3;
+    }
+
+    public void UpdateBaloonSun(){
+        this.longitude+=2;
+        this.height+=4;
+    }
+
+    public void UpdateBaloonSnow(){
+        this.height-=15;
+    }
 }
