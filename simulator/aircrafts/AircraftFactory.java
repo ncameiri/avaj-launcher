@@ -10,18 +10,16 @@ public class AircraftFactory {
 
     private AircraftFactory(){}
 
-    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) throws Exception{
+    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates, Number unique_id) throws Exception{
         if (instance == null) {
             instance = new AircraftFactory();
         }
-        //System.out.println(Simulator.airc_id);
-        //System.out.println(p_name);
         if(p_type.equals("Helicopter"))       
-            return new Helicopter(Simulator.airc_id++, p_name, p_coordinates);
+            return new Helicopter(Simulator.airc_id, p_name, p_coordinates, unique_id);
         else if(p_type.equals("JetPlane"))
-            return new JetPlane(Simulator.airc_id++, p_name, p_coordinates);
+            return new JetPlane(Simulator.airc_id, p_name, p_coordinates, unique_id);
         else if(p_type.equals("Baloon"))
-            return new Baloon(Simulator.airc_id++, p_name, p_coordinates);
+            return new Baloon(Simulator.airc_id, p_name, p_coordinates, unique_id);
         throw new Exception("Wrong type of Flyable");
     }       
 }

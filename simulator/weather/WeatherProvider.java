@@ -11,9 +11,7 @@ public class WeatherProvider {
     
     private WeatherProvider(String[] value){
         String[] kind_of_wheather={"RAIN", "FOG", "SUN", "SNOW"};
-        //System.out.println("Constructor1");
         this.weather =  kind_of_wheather;
-        //instance = instance;
     }
 
     public static WeatherProvider get_WeatherInstance(){
@@ -21,9 +19,6 @@ public class WeatherProvider {
     }
 
     public String getCurrentWeather(Coordinates p_coordinates){
-        //Random rand = new Random();
-        //return instance.weather[rand.nextInt(4)];
-
         int lon=p_coordinates.getLongitude();
         int lat=p_coordinates.getLatitude();
         int hei=p_coordinates.getHeight();
@@ -32,7 +27,6 @@ public class WeatherProvider {
             hei = lon + lat + 1;
         }
         float index_= (float) Math.floor((lon * lat / hei));
-        //System.out.println(Math.round(index_%4));
         return instance.weather[Math.round(index_%4)];
     }
 }

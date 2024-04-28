@@ -13,11 +13,23 @@ import simulator.weather.WeatherTower;
 public class Simulator {
   static public int airc_id=0;
   static int sim_loops=-1;
+  static FileWriter output_file=null;
   //WeatherTower creation to be compatible with
   //registerTower Method
   private static WeatherTower p_tower = new WeatherTower();
   public int validate_type_flyable(String flyable_to_test){
       return 0;
+  }
+
+  public static void write_out_file(String str){
+    try{
+    output_file.write(str+"\n");
+    }catch (IOException e) {
+      System.out.println("An error occurred writing to simulation file.");
+      e.printStackTrace();
+      return;
+    }
+
   }
 
   public static  int file_parse(Scanner scenario_reader) throws Exception{
@@ -39,8 +51,7 @@ public class Simulator {
         int Heig = Integer.parseInt(tokens.nextToken());
         Coordinates coord = new Coordinates(Long,Lati,Heig);
         p_tower.check_duplicated_id(Register_Id);
-        //System.out.println(data);
-        Flyable curr_fly=AircraftFactory.newAircraft(AircraftType, Register_Id, coord);
+        Flyable curr_fly=AircraftFactory.newAircraft(AircraftType, Register_Id, coord,++airc_id);
         curr_fly.registerTower(p_tower);         
     }
      return 0;
@@ -53,50 +64,31 @@ public class Simulator {
 			return;
 		}
     try {
-      //System.out.println(args[0]);
       File scenario_file = new File(args[0]);
+      //Overwrite previous content of file
+      output_file= new FileWriter("simulation.txt");
       Scanner file_reader = new Scanner(scenario_file);
       file_parse(file_reader);
+      file_reader.close();
       //System.out.println(sim_loops);
  
       //DEBUG- check all registered aircrafts
       //p_tower.check_all_aircrafts();
       //Loop all over the simulation cycles
+      while(sim_loops>0){
       p_tower.changeWeather();
-      
+      sim_loops--;
+    }
+      //p_tower.check_all_aircrafts();
+      //WeatherTower tower = new WeatherTower();
 
-      WeatherTower tower = new WeatherTower();
-
-      file_reader.close();
+      output_file.close();
     } catch (Exception e) {
       System.out.println("An error occurred opening / reading file.");
       e.printStackTrace();
       return;
     }
-
-      //TESTES
-      //Coordinates new_coordinates = new Coordinates(654,33,20);
-      //AircraftFactory.newAircraft("1","NoName", new Coordinates(654,33,20));
-      // String[] tt={"1", "2", "3", "4"};
-      //  //WeatherProvider ne= new WeatherProvider(null);
-      //  try{
-      //   Random randa = new Random();
-      //   Random randb = new Random();
-      //   Random randc = new Random();
-      //    Coordinates a = new Coordinates(Math.abs(randa.nextInt(100)),Math.abs(randb.nextInt(100)),Math.abs(randc.nextInt(100)));
-      //  String res_1=WeatherProvider.getCurrentWeather(a);
-      //  System.out.println(res_1);
-      //  res_1=WeatherProvider.getCurrentWeather(a);
-      //  System.out.println(res_1);
-      //  res_1=WeatherProvider.getCurrentWeather(a);
-      //  System.out.println(res_1);
-      //  res_1=WeatherProvider.getCurrentWeather(a);
-      //  System.out.println(res_1);
-      //  }
-      //  catch(Exception e){e.printStackTrace();}
-      // WeatherProvider n2e=  new WeatherProvider(tt);
       return;
     }
     
-  //}
 }

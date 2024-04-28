@@ -8,14 +8,18 @@ public class Coordinates {
     //O Throws Exception vai enviar a exception para o main e interromper o código, o try catch não poderá estar na função caso contrario apenas interrompe o constructor, continuando a execução do main
     public Coordinates(int p_longitude, int p_latitude, int p_height) throws Exception{
         //try{
-            if(p_height < 0 || p_height > 100){
+            if(p_height < 0){
             throw new Exception("height out of bounds Exception");
             }
+
+            if(p_height > 100)
+                this.height = 100; 
+            else
+                this.height = p_height;
 
             if(p_longitude < 0 || p_latitude < 0){
             throw new Exception("latitude or longitude out of bounds Exception");    
             }
-            this.height = p_height;
             this.longitude = p_longitude;
             this.latitute = p_latitude;
         //}
@@ -45,7 +49,10 @@ public class Coordinates {
 
     public void UpdateHelicopterSun(){
         this.longitude+=10;
-        this.height+=2;
+        if(this.height + 2 > 100)
+            this.height=100;
+        else
+            this.height+=2;
     }
 
     public void UpdateHelicopterSnow(){
@@ -62,7 +69,10 @@ public class Coordinates {
 
     public void UpdateJetPlaneSun(){
         this.latitute+=10;
-        this.height+=2;
+        if(this.height + 2 > 100)
+            this.height=100;
+        else
+            this.height+=2;
     }
 
     public void UpdateJetPlaneSnow(){
@@ -79,7 +89,10 @@ public class Coordinates {
 
     public void UpdateBaloonSun(){
         this.longitude+=2;
-        this.height+=4;
+        if(this.height + 4 > 100)
+            this.height=100;
+        else
+            this.height+=4;
     }
 
     public void UpdateBaloonSnow(){

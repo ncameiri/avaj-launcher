@@ -3,12 +3,15 @@ import simulator.*;
 import simulator.aircrafts.*;
 import simulator.weather.WeatherTower;
 
+
 import java.util.*;
 public class Tower{
     private List<Flyable> observers= new ArrayList<Flyable>();
 
     	public void register(Flyable flyable) {
 		observers.add(flyable);
+		Simulator.write_out_file("Tower says: "+flyable.get_prefix() + " registered to weather tower.");
+		System.out.println("Tower says: "+flyable.get_prefix() + " registered to weather tower.");
 	}
 	
 	public void unregister(Flyable flyable) {
@@ -16,13 +19,25 @@ public class Tower{
 	}
 	
 	protected void conditionsChanged() {
-		Iterator<Flyable> iterator = observers.iterator();
 		
+		Iterator<Flyable> iterator = observers.iterator();
+		List<Flyable>  del_list = new ArrayList<Flyable>();
 		
 		while(iterator.hasNext()){
-			iterator.next().updateConditions();
-
+			Flyable el=iterator.next();
+			if(el.updateConditions() == 1){
+				Simulator.write_out_file("Tower says: "+el.get_prefix() + " unregistered from weather tower.");
+				System.out.println("Tower says: "+el.get_prefix() + " unregistered from weather tower.");
+				del_list.add(el);
+			}
 		}
+
+		//Temp list for deletions
+		iterator= del_list.iterator();
+		while(iterator.hasNext()){
+			unregister(iterator.next());
+		}
+
 	}
 
 	public void check_all_aircrafts(){
@@ -33,9 +48,7 @@ public class Tower{
 		
 		Iterator<Flyable> iterator = observers.iterator();
 		
-		//simple iteration
 		while(iterator.hasNext()){
-			//int i = (int) iterator.next();
 			if(iterator.next().get_name().equals(id_to_check))
 				  throw new Exception("Duplicated id");
 		}
