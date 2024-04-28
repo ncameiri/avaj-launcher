@@ -18,22 +18,22 @@ public class JetPlane extends Aircraft {
         else{
             switch (_weather) {
                 case "RAIN":
-                    Simulator.write_out_file(this.get_prefix()+": RAIN.");
-                    System.out.println(this.get_prefix()+": RAIN.");
+                    Simulator.write_out_file(this.get_prefix()+": It's raining. Better watch out for lightings.");
+                    System.out.println(this.get_prefix()+": It's raining. Better watch out for lightings.");
                     break;
             
                 case "FOG":
-                    Simulator.write_out_file(this.get_prefix()+": FOG.");
-                    System.out.println(this.get_prefix()+": FOG.");
+                    Simulator.write_out_file(this.get_prefix()+": I Can't see anything ahead!");
+                    System.out.println(this.get_prefix()+": I Can't see anything ahead!");
                     break;
                 
                 case "SUN":
-                    Simulator.write_out_file(this.get_prefix()+": SUN.");
-                    System.out.println(this.get_prefix()+": SUN.");
+                    Simulator.write_out_file(this.get_prefix()+": This is hot on cockpit!");
+                    System.out.println(this.get_prefix()+": This is hot on cockpit!");
                     break;
                 case "SNOW":
-                    Simulator.write_out_file(this.get_prefix()+": SNOW.");
-                    System.out.println(this.get_prefix()+": SNOW.");
+                    Simulator.write_out_file(this.get_prefix()+": OMG! Winter is coming!");
+                    System.out.println(this.get_prefix()+": OMG! Winter is coming!");
                     break;
             }
         }

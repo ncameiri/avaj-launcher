@@ -19,22 +19,22 @@ public class Baloon extends Aircraft{
         else{
             switch (_weather) {
                 case "RAIN":
-                    Simulator.write_out_file(this.get_prefix()+": RAIN.");
-                    System.out.println(this.get_prefix()+": RAIN.");
+                    Simulator.write_out_file(this.get_prefix()+": Damn you rain! You messed up my baloon.");
+                    System.out.println(this.get_prefix()+": Damn you rain! You messed up my baloon.");
                     break;
             
                 case "FOG":
-                    Simulator.write_out_file(this.get_prefix()+": FOG.");
-                    System.out.println(this.get_prefix()+": FOG.");
+                    Simulator.write_out_file(this.get_prefix()+": It's a foggy day!");
+                    System.out.println(this.get_prefix()+": It's a foggy day!");
                     break;
                 
                 case "SUN":
-                    Simulator.write_out_file(this.get_prefix()+": SUN.");
-                    System.out.println(this.get_prefix()+": SUN.");
+                    Simulator.write_out_file(this.get_prefix()+": Let's enjoy the good weather and take some pics.");
+                    System.out.println(this.get_prefix()+": Let's enjoy the good weather and take some pics.");
                     break;
                 case "SNOW":
-                    Simulator.write_out_file(this.get_prefix()+": SNOW.");
-                    System.out.println(this.get_prefix()+": SNOW.");
+                    Simulator.write_out_file(this.get_prefix()+": It's snowing. We're gonna crash.");
+                    System.out.println(this.get_prefix()+": It's snowing. We're gonna crash.");
                     break;
             }
         }

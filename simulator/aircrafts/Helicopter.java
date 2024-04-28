@@ -18,22 +18,22 @@ public class Helicopter  extends Aircraft {
         else{
             switch (_weather) {
                 case "RAIN":
-                    Simulator.write_out_file(this.get_prefix()+": RAIN.");
-                    System.out.println(this.get_prefix()+": RAIN.");
+                    Simulator.write_out_file(this.get_prefix()+": It's a rainy day!");
+                    System.out.println(this.get_prefix()+": It's a rainy day!");
                     break;
             
                 case "FOG":
-                    Simulator.write_out_file(this.get_prefix()+": FOG.");
-                    System.out.println(this.get_prefix()+": FOG.");
+                    Simulator.write_out_file(this.get_prefix()+": I Can't see my blades!");
+                    System.out.println(this.get_prefix()+": I Can't see my blades!");
                     break;
                 
                 case "SUN":
-                    Simulator.write_out_file(this.get_prefix()+": SUN.");
-                    System.out.println(this.get_prefix()+": SUN.");
+                    Simulator.write_out_file(this.get_prefix()+": This is hot.");
+                    System.out.println(this.get_prefix()+": This is hot.");
                     break;
                 case "SNOW":
-                    Simulator.write_out_file(this.get_prefix()+": SNOW.");
-                    System.out.println(this.get_prefix()+": SNOW.");
+                    Simulator.write_out_file(this.get_prefix()+":My rotor is going to freeze!.");
+                    System.out.println(this.get_prefix()+":My rotor is going to freeze!.");
                     break;
             }
         }
