@@ -1,8 +1,5 @@
 package simulator;
-import simulator.*;
 import simulator.aircrafts.*;
-import simulator.weather.WeatherTower;
-
 
 import java.util.*;
 public class Tower{
@@ -20,7 +17,11 @@ public class Tower{
 	
 	protected void conditionsChanged() {
 		
+		//Using Iterator to go through all the aircrafts list
 		Iterator<Flyable> iterator = observers.iterator();
+
+		//Temporary List for deletion after update condition (coordinates) based on weather
+		// only after while to avoid loose iterator position when deleting an element of Array
 		List<Flyable>  del_list = new ArrayList<Flyable>();
 		
 		while(iterator.hasNext()){

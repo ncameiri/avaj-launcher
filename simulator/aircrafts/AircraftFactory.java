@@ -1,8 +1,6 @@
 package simulator.aircrafts;
 import coordinates.*;
 import simulator.Simulator;
-import simulator.weather.WeatherProvider;
-
 
 //Singleton -> Only 1 object instance of this type
 public class AircraftFactory {

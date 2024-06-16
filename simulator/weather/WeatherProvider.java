@@ -1,5 +1,4 @@
 package simulator.weather;
-import java.util.Random;
 
 import coordinates.*;
 //Singleton - Unique Object - Unique access point - 1 instance of object

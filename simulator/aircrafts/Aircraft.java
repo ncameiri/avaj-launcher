@@ -1,7 +1,5 @@
 package simulator.aircrafts;
 import coordinates.*;
-import simulator.*;
-import simulator.weather.WeatherTower;
 public class Aircraft extends Flyable {
     // TYPE NAME LONGITUDE LATITUDE HEIGHT
     //1-> Helicopter, 2-> JetPlane, 3-> Baloon

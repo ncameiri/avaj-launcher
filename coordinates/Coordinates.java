@@ -5,9 +5,9 @@ public class Coordinates {
     private int latitute;
     private int height;
     
-    //O Throws Exception vai enviar a exception para o main e interromper o código, o try catch não poderá estar na função caso contrario apenas interrompe o constructor, continuando a execução do main
+    //Throws Exception send exception to main func and stops at that point the program execution
+    //try catch can't be on this function otherwise it will only stop constructor and not all program
     public Coordinates(int p_longitude, int p_latitude, int p_height) throws Exception{
-        //try{
             if(p_height < 0){
             throw new Exception("height out of bounds Exception");
             }
@@ -22,11 +22,6 @@ public class Coordinates {
             }
             this.longitude = p_longitude;
             this.latitute = p_latitude;
-        //}
-        // catch(Exception e){
-        //     e.printStackTrace();
-            
-        // }
        
     }
     public int getLongitude(){
