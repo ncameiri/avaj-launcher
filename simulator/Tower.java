@@ -23,7 +23,12 @@ public class Tower{
 		//Temporary List for deletion after update condition (coordinates) based on weather
 		// only after while to avoid loose iterator position when deleting an element of Array
 		List<Flyable>  del_list = new ArrayList<Flyable>();
-		
+
+		//If no registered Aircrafts on Tower, program will exit and inform
+		if(observers.size() == 0){
+			Simulator.exit_no_aircraft_registered();
+		}
+
 		while(iterator.hasNext()){
 			Flyable el=iterator.next();
 			if(el.updateConditions() == 1){
@@ -37,6 +42,7 @@ public class Tower{
 		iterator= del_list.iterator();
 		while(iterator.hasNext()){
 			unregister(iterator.next());
+			iterator= del_list.iterator();
 		}
 
 	}

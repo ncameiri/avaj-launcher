@@ -56,6 +56,16 @@ public class Simulator {
 
   }
 
+  public static void exit_no_aircraft_registered(){
+    try{
+    Simulator.write_out_file("No Aircrafts Registered on tower, program will exit");
+    System.out.println("No Aircrafts Registered on tower, program will exit");
+    output_file.close();
+    System.exit(0);
+    }
+    catch(Exception e){}
+  }
+
   public static void main(String[] args) {
     if (args.length < 1) {
       System.out.println("Please provide 1 simulation file as 1st argument");
