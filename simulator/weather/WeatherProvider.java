@@ -9,8 +9,8 @@ public class WeatherProvider {
     
     
     private WeatherProvider(String[] value){
-        String[] kind_of_wheather={"RAIN", "FOG", "SUN", "SNOW"};
-        this.weather =  kind_of_wheather;
+        String[] kind_of_weather={"RAIN", "FOG", "SUN", "SNOW"};
+        this.weather =  kind_of_weather;
     }
 
     public static WeatherProvider get_WeatherInstance(){

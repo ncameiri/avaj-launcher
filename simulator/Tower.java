@@ -3,19 +3,21 @@ import simulator.aircrafts.*;
 
 import java.util.*;
 public class Tower{
+	// Don't use the * , since on Java there are no pointers like in C
+	// This is managed by the Java Virtual Machine, in Java you cannot do pointer arithmetic at all
     private List<Flyable> observers= new ArrayList<Flyable>();
 
-    	public void register(Flyable flyable) {
-		observers.add(flyable);
-		Simulator.write_out_file("Tower says: "+flyable.get_prefix() + " registered to weather tower.");
-		System.out.println("Tower says: "+flyable.get_prefix() + " registered to weather tower.");
+    	public void register(Flyable p_flyable) {
+		observers.add(p_flyable);
+		Simulator.write_out_file("Tower says: " + p_flyable.get_prefix() + " registered to weather tower.");
+		System.out.println("Tower says: " + p_flyable.get_prefix() + " registered to weather tower.");
 	}
 	
-	public void unregister(Flyable flyable) {
-		observers.remove(flyable);
+	public void unregister(Flyable p_flyable) {
+		observers.remove(p_flyable);
 	}
 	
-	protected void conditionsChanged() {
+	protected void conditionChanged() {
 		
 		//Using Iterator to go through all the aircrafts list
 		Iterator<Flyable> iterator = observers.iterator();
