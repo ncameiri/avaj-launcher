@@ -18,7 +18,6 @@ public class Tower{
 	}
 	
 	protected void conditionChanged() {
-		
 		//Using Iterator to go through all the aircrafts list
 		Iterator<Flyable> iterator = observers.iterator();
 
@@ -39,12 +38,13 @@ public class Tower{
 				del_list.add(el);
 			}
 		}
-
+		
 		//Temp list for deletions
 		iterator= del_list.iterator();
 		while(iterator.hasNext()){
 			unregister(iterator.next());
-			iterator= del_list.iterator();
+			if(iterator.hasNext())
+				iterator= del_list.iterator();
 		}
 
 	}
