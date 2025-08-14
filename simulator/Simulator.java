@@ -8,6 +8,7 @@ import simulator.aircrafts.Flyable;
 import simulator.weather.WeatherTower;
 
 public class Simulator {
+  // Static since we need to access it from other classes and don't need to create an Simulator object
   static public int airc_id = 0;
   static int sim_loops = -1;
   static FileWriter output_file = null;
@@ -37,11 +38,8 @@ public class Simulator {
     if (sim_loops <= 0)
       throw new Exception("Wrong number of simulation loops");
     while (scenario_reader.hasNextLine()) {
-      // if(data){
       data = scenario_reader.nextLine();
-
       StringTokenizer tokens = new StringTokenizer(data.trim());
-      // while (tokens.hasMoreTokens()) {
       String AircraftType = tokens.nextToken();
       String Register_Id = tokens.nextToken();
       int Long = Integer.parseInt(tokens.nextToken());
@@ -78,16 +76,11 @@ public class Simulator {
       Scanner file_reader = new Scanner(scenario_file);
       file_parse(file_reader);
       file_reader.close();
-
-      // DEBUG- check all registered aircrafts
-      // p_tower.check_all_aircrafts();
       // Loop all over the simulation cycles
       while (sim_loops > 0) {
         p_tower.changeWeather();
         sim_loops--;
       }
-      // p_tower.check_all_aircrafts();
-      // WeatherTower tower = new WeatherTower();
 
       output_file.close();
       

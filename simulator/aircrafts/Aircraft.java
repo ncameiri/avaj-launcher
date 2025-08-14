@@ -15,13 +15,7 @@ public class Aircraft extends Flyable {
     //Added method to update Coordinates depending
     // on weather and rules on subject
     protected int updateCoordinates(String kind_of_wheather){
-        //System.out.println(kind_of_wheather);
-        //System.out.println(this.get_prefix());
 
-        var a1=this.coordinates.getHeight();
-        var b2=this.coordinates.getLongitude();
-        var c3= this.coordinates.getLatitude();
-        //System.out.println(a1+" "+b2+" "+c3);
         switch(this.get_type()) {
             case "HELICOPTER":
                 switch(kind_of_wheather){
@@ -76,10 +70,6 @@ public class Aircraft extends Flyable {
         if(this.coordinates.getHeight() <= 0){
            return 1;
         }
-        var a=this.coordinates.getHeight();
-        var b=this.coordinates.getLongitude();
-        var c= this.coordinates.getLatitude();
-        //System.out.println(a+" "+b+" "+c);
         return 0;
 
     }
