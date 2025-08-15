@@ -38,3 +38,29 @@ jar cf coord.jar $(find ./coordinates/* -name "*.class")
 jar cfe simu.jar simulator.Simulator $(find ./simulator/* -name "*.class") 
 java -jar simu.jar coord.jar  scenario.txt
 java -cp "simu.jar:coord.jar" simulator.Simulator  scenario.txt
+
+
+
+Gang of Four (GoF) book
+
+The term Gang of Four refers to four authors:
+
+Erich Gamma
+
+Richard Helm
+
+Ralph Johnson
+
+John Vlissides
+
+In 1994, they published the book:
+
+Design Patterns: Elements of Reusable Object-Oriented Software
+
+This book became the “pattern bible” for object-oriented programming.
+It describes 23 classic design patterns, divided into 3 main categories:
+
+Category	Purpose	Example Patterns
+Creational	How objects are created	Singleton, Factory Method, Builder
+Structural	How classes/objects are composed to form larger structures	Adapter, Decorator, Composite
+Behavioral	How objects communicate and assign responsibilities	Observer, Strategy, Command
